@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# 设置用户的所有进程的 CPU 优先级为最高
+sudo renice -n -20 -u chenzigui
+
+# 设置用户的所有进程的 I/O 优先级为最高
+pgrep -u chenzigui | xargs -I {} sudo ionice -c2 -n0 -p {}
+
+echo "CPU 和 I/O 优先级已为用户 chenzigui 的所有进程设置为最高"

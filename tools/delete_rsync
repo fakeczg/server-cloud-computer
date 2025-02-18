@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# 检查是否有一个参数（目录路径）传入
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <directory>"
+    exit 1
+fi
+
+# 获取传入的文件夹路径
+DIR=$1
+
+# 检查目录是否存在
+if [ ! -d "$DIR" ]; then
+    echo "Directory $DIR does not exist."
+    exit 1
+fi
+
+# 创建一个临时的空目录，用于rsync操作
+TEMP_DIR=$(mktemp -d)
+
+# 使用rsync来清空指定的目录
+rsync -a  --progress --stats --delete-before $TEMP_DIR/ "$DIR"
+
+# 删除目标目录
+rm -rf "$DIR"
+
+# 删除临时的空目录
+rm -rf $TEMP_DIR
+
+echo "Directory $DIR has been deleted."
+
