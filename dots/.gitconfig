@@ -2,7 +2,7 @@
 	name = fovt
 	email = chenzigui1762@phytium.com.cn
 [core]
-	editor = nvim
+	editor = vim
 	quotepath = false
 	autocrlf = false
 [safe]
@@ -16,6 +16,7 @@
 	directory = /data/share/home3/src/Kernel/kernel_linux_5.10
 	directory = /data/share/home3/src/Kernel/kernel_linux_5.10
 	directory = /data/share/home2/src/Openharmony/D2000/OH_V4.1_RE/src/out/d2000/KERNEL_OBJ/kernel/src_tmp/linux-5.10
+	directory = /home3/tangkw/OH/OH_V5.0/PHYTIUM_V5.0/vivante_gpu_new
 [init]
 	defaultBranch = main
 
@@ -50,6 +51,3 @@
     summary = blue bold  # 提交摘要使用蓝色加粗显示
     author = magenta bold  # 作者名使用洋红色加粗显示
     graph = normal bold  # 提交图形使用默认颜色加粗显示
-
-[color "push"]
-    error = brightred bold  # 错误信息使用亮红色加粗显示
