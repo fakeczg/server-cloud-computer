@@ -14,7 +14,6 @@
 # 2. dots
 
 - `ln ~/server-cloud-computer/dots/.gitconfig ~/.gitconfig -sf` 
-- `ln ~/server-cloud-computer/dots/.bash_history ~/.bash_history -sf` 
 - `ln ~/server-cloud-computer/dots/.bash_profile ~/.bash_profile -sf` 
 - `ln ~/server-cloud-computer/dots/.bashrc ~/.bashrc -sf` 
 
