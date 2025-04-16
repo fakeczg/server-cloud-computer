@@ -4,7 +4,7 @@
 [core]
 	editor = vim
 	quotepath = false
-	autocrlf = false
+	autocrlf = input
 [safe]
 	directory = /data/share/chenzigui/src/Openharmony/D2000/OH_V3.2_RE/foundation/graphic/graphic_2d
 	directory = /usr/share/fonts
@@ -17,6 +17,7 @@
 	directory = /data/share/home3/src/Kernel/kernel_linux_5.10
 	directory = /data/share/home2/src/Openharmony/D2000/OH_V4.1_RE/src/out/d2000/KERNEL_OBJ/kernel/src_tmp/linux-5.10
 	directory = /home3/tangkw/OH/OH_V5.0/PHYTIUM_V5.0/vivante_gpu_new
+	directory = /home3/wuao/openharmony_project/workspace/oh_tenglong_hck/openharmony/foundation/graphic/graphic_2d
 [init]
 	defaultBranch = main
 
@@ -32,12 +33,12 @@
     remote = red bold  # 远程分支使用红色加粗显示
 
 [color "diff"]
-    old = red bold  # 删除的行使用红色加粗显示
-    new = blue bold  # 新增的行使用蓝色加粗显示
+    old = red bold  # 删除的行使用亮红色加粗显示
+    new = bold 93  # 新增的行使用亮紫色加粗显示
     frag = magenta bold  # 区块信息使用洋红色加粗显示
     func = magenta bold  # 函数名使用洋红色加粗显示
     context = normal  # 其他内容使用默认颜色
-    meta = cyan bold  # 元数据（如索引信息）使用青色加粗显示
+    meta = cyan bold ul  # 元数据（如索引信息）使用青色加粗显示
     whitespace = red reverse  # 多余的空白字符用红色反转显示
 
 [color "status"]
@@ -51,3 +52,9 @@
     summary = blue bold  # 提交摘要使用蓝色加粗显示
     author = magenta bold  # 作者名使用洋红色加粗显示
     graph = normal bold  # 提交图形使用默认颜色加粗显示
+
+[color "push"]
+    error = red bold # 错误信息使用亮红色加粗显示
+[alias]
+	#lg = log --color --graph --pretty=format:'%C(bold 93)%h%Creset -%C(blue)%d%Creset %C(red)%s%Creset %C(cyan)(%cr)%Creset %C(cyan)<%an>%Creset' --abbrev-commit
+	lg = log --color --graph --pretty=format:'%C(bold 93)%h%Creset -%C(blue)%d%Creset %C(red)%s%Creset %C(black)(%cr)%Creset %C(black)<%an>%Creset' --abbrev-commit
