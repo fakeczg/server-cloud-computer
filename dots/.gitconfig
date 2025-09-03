@@ -18,6 +18,20 @@
 	directory = /data/share/home2/src/Openharmony/D2000/OH_V4.1_RE/src/out/d2000/KERNEL_OBJ/kernel/src_tmp/linux-5.10
 	directory = /home3/tangkw/OH/OH_V5.0/PHYTIUM_V5.0/vivante_gpu_new
 	directory = /home3/wuao/openharmony_project/workspace/oh_tenglong_hck/openharmony/foundation/graphic/graphic_2d
+	directory = /home3/tangkw/OH/OH_V5.0/PHYTIUM_V5.0/third_party/libdrm
+	directory = /home3/wangxiaoqing/workspace/phytium_device/openharmony_d2000_device
+	directory = /home3/tangkw/OH/openharmony_d2000_device
+	directory = /home3/tangkw/OH/OH_DOCKER/third_party/MY_MESA/third_party_mesa3d_phytium
+	directory = /home3/wuao/openharmony_project/workspace/5.1.0_src/openharmony/foundation/graphic/graphic_2d
+	directory = /home3/wangxiaoqing/workspace-5.1/AN/aosp/external/drm_hwcomposer
+	directory = /home3/wangxiaoqing/workspace-5.1/AN/aosp/android_d3000m_graphic_driver
+	directory = /home4/wuwenxing/src/kernel/update/android_common_kernel_6.6
+	directory = /home3/tangkw/OH/OH_V510/device/soc/phytium/common/hardware/display
+	directory = /home3/wangxiaoqing/workspace-5.1/AN/e2000_android13_device
+	directory = /home3/wangxiaoqing/workspace-5.1/android_d3000m_graphic_driver
+	directory = /home4/wangguanlin/gerrit/openharmony_d2000_device/device_board_phytium/common/kernel_source/linux-5.10/hck/drivers/gpu/drm/phytium
+	directory = /home3/wangxiaoqing/workspace-5.1/phytium_device/openharmony_d2000_device
+	directory = /home4/jenkins_verify/source_code/pd2508_android13/AN/e2000_android13_device
 [init]
 	defaultBranch = main
 

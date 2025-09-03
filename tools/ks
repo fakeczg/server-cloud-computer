@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# 提示用户输入用户名
+read -p "请输入用户名： " username
+
+# 检查用户名是否存在
+if id "$username" &>/dev/null; then
+    echo "正在终止 $username 用户的所有进程..."
+
+    # 获取该用户的所有进程，并逐个终止
+    ps -u "$username" -o pid= | while read pid; do
+        # 确保不要终止关键的系统进程（例如自己）
+        if [ "$pid" != $$ ]; then
+            sudo kill -9 "$pid"
+            echo "已终止进程: $pid"
+        fi
+    done
+
+    echo "$username 的所有进程已被终止。"
+else
+    echo "用户 $username 不存在！"
+fi
+
