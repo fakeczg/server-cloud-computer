@@ -133,6 +133,15 @@ remount_partition() {
 	fi
 }
 
+do_sync() {
+  # 单次同步：区分本机/设备
+  if [ "$ACTION" == "adb" ]; then
+    adb shell sync
+  else
+    sync
+  fi
+}
+
 # 查看时间信息选项
 if [ "$4" == "p" ] && [ "$5" == "src" ]; then
 	print_src_time_info "$SRC"
@@ -162,10 +171,12 @@ if [ "$ACTION" == "cp" ]; then
 		create_dst_dir "$dst_dir"
 
 		copy_file "$src" "$dst"
+		#do_sync
 	done
 
 	# 清理临时中转目录
 	rm -rf /tmp/an_gpu_libs_tmp
+	do_sync
 
 elif [ "$ACTION" == "adb" ]; then
 	for file in "${FILES[@]}"; do
@@ -175,7 +186,9 @@ elif [ "$ACTION" == "adb" ]; then
 		print_file_time_info "$src"
 
 		push_file_to_device "$src" "$dst"
+		#do_sync
 	done
+	do_sync
 else
 	echo "Invalid action. Use 'cp' for local copy or 'adb' for pushing to device."
 	exit 1
