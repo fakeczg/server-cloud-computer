@@ -55,10 +55,10 @@ EOF
 # 文件清单（64 位 / 32 位）
 # -----------------------------
 FILES_64=(
-  "vendor/lib64/egl/libEGL_FTG340.so"
   "vendor/lib64/egl/libGLESv1_CM_FTG340.so"
   "vendor/lib64/egl/libGLESv2_FTG340.so"
   "vendor/lib64/hw/gralloc.FTG340.so"
+  "vendor/lib64/libvulkan_FTG340.so"
   "vendor/lib64/libdrm_android.so"
   "vendor/lib64/libdrm_ftg340.so"
   "vendor/lib64/libdrm_vivante.so"
@@ -72,6 +72,7 @@ FILES_32=(
   "vendor/lib/egl/libGLESv1_CM_FTG340.so"
   "vendor/lib/egl/libGLESv2_FTG340.so"
   "vendor/lib/hw/gralloc.FTG340.so"
+  "vendor/lib/libvulkan_FTG340.so"
   "vendor/lib/libdrm_android.so"
   "vendor/lib/libdrm_ftg340.so"
   "vendor/lib/libdrm_vivante.so"

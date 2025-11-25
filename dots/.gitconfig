@@ -32,6 +32,9 @@
 	directory = /home4/wangguanlin/gerrit/openharmony_d2000_device/device_board_phytium/common/kernel_source/linux-5.10/hck/drivers/gpu/drm/phytium
 	directory = /home3/wangxiaoqing/workspace-5.1/phytium_device/openharmony_d2000_device
 	directory = /home4/jenkins_verify/source_code/pd2508_android13/AN/e2000_android13_device
+	directory = /home3/tangkw/OH/OH_V510/vivante_gpu_new
+	directory = /home4/wangguanlin/gerrit/NeoAndroid/android_common_kernel_6.6_vendor
+	directory = /home4/wangguanlin/gerrit/NeoAndroid/aosp/android_d3000m_graphic_driver_vendor
 [init]
 	defaultBranch = main
 
