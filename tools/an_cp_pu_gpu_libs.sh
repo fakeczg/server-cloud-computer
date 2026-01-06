@@ -19,10 +19,14 @@ FILES=(
 	"vendor/lib64/egl/libGLESv1_CM_FTG340.so"
 	"vendor/lib64/egl/libGLESv2_FTG340.so"
 	"vendor/lib64/hw/gralloc.FTG340.so"
+	"vendor/lib64/hw/vulkan.FTG340.so"
 	"vendor/lib64/libvulkan_FTG340.so"
 	"vendor/lib64/libdrm_android.so"
+	"vendor/lib64/libdrm_FTG340.so"
 	"vendor/lib64/libdrm_ftg340.so"
 	"vendor/lib64/libdrm_vivante.so"
+	"vendor/lib64/libSPIRV_FTG340.so"
+	"vendor/lib64/libSPIRV_viv.so"
 	"vendor/lib64/libGAL.so"
 	"vendor/lib64/libGLSLC.so"
 	"vendor/lib64/libVSC.so"
@@ -31,10 +35,14 @@ FILES=(
 	"vendor/lib/egl/libGLESv1_CM_FTG340.so"
 	"vendor/lib/egl/libGLESv2_FTG340.so"
 	"vendor/lib/hw/gralloc.FTG340.so"
+	"vendor/lib/hw/vulkan.FTG340.so"
 	"vendor/lib/libvulkan_FTG340.so"
+	"vendor/lib/libdrm_FTG340.so"
 	"vendor/lib/libdrm_android.so"
 	"vendor/lib/libdrm_ftg340.so"
 	"vendor/lib/libdrm_vivante.so"
+	"vendor/lib/libSPIRV_FTG340.so"
+	"vendor/lib/libSPIRV_viv.so"
 	"vendor/lib/libGAL.so"
 	"vendor/lib/libGLSLC.so"
 	"vendor/lib/libVSC.so"
@@ -136,12 +144,12 @@ remount_partition() {
 }
 
 do_sync() {
-  # 单次同步：区分本机/设备
-  if [ "$ACTION" == "adb" ]; then
-    adb shell sync
-  else
-    sync
-  fi
+	# 单次同步：区分本机/设备
+	if [ "$ACTION" == "adb" ]; then
+		adb shell sync
+	else
+		sync
+	fi
 }
 
 # 查看时间信息选项

@@ -1,0 +1,10 @@
+===== 🚀 Starting HDC Library Deployment =====
+System: Linux fovt 6.17.9-arch1-1 #1 SMP PREEMPT_DYNAMIC Mon, 24 Nov 2025 15:21:09 +0000 x86_64 GNU/Linux
+Bash version: 5.3.3(1)-release
+HDC connected device: 10.31.95.209:9527
+=== 🔧 Remounting /vendor as read-write (rw) ===
+/dev/block/nvme0n1p4 on /vendor type ext4 (ro,seclabel,relatime)
+🔄 /vendor is currently read-only, attempting to remount...
+✅ Remounted /vendor as rw
+=== 🔍 Checking local source files ===
+❌ ERROR: Missing local file: hdf/device_pd2508_laptop/libdisplay_composer_vendor.z.so
