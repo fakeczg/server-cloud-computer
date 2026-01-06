@@ -9,7 +9,7 @@ alias gp='git pull'
 #alias gl='git log --pretty'
 alias gl='git lg'
 #alias make='bear make'
-alias nv='vim'
+alias nv='nvim'
 alias ..='cd ..'
 alias fd='fd -I'
 alias ra='ranger'
@@ -28,6 +28,23 @@ function gpush() {
 }
 
 export PATH="$PATH:$(find ~/server-cloud-computer -type d -not -path '*/.git/*' | tr '\n' ':')"
-# 按照夏总的意思取消，home对应/home/chenzigui，ccache默认就在/home了
-#export CCACHE_DIR=/cchace/chenzigui
-#export CCACHE_BASE=/cchace/chenzigui
+export VISUAL=nvim
+export EDITOR=nvim
+
+# openharmony-build: ccached
+export CCACHE_BASE=/home/chenzigui
+export CCACHE_LOCAL_DIR=ccache
+export USE_CCACHE=1
+export CCACHE_MAXSIZE=500G
+
+# 自动挂载 /hdd1/chenzigui/src 到 /home/chenzigui/src
+SRC_MOUNT="/home/chenzigui/src"
+SRC_DEVICE="/hdd1/chenzigui/src"
+
+if ! mountpoint -q "$SRC_MOUNT"; then
+    echo "[mount] $SRC_MOUNT not mounted, mounting..."
+    mkdir -p "$SRC_MOUNT"
+    sudo mount --bind "$SRC_DEVICE" "$SRC_MOUNT"
+else
+    echo "[mount] $SRC_MOUNT already mounted."
+fi

@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+#
+# 更新当前仓库的 Git hooks
+#
+# 源 hooks 目录固定为：
+#   /home/chenzigui/src/hooks/
+#
+# 逻辑：
+#   1. 判断当前目录是否是 git 仓库
+#   2. 判断 .git/config 内是否包含 "gerrit"
+#   3. 将 /home/chenzigui/src/hooks 下的文件复制到 .git/hooks
+#      - 若目标文件已存在，先备份成 .bak.<timestamp>
+#
+
+set -euo pipefail
+
+HOOK_SRC_DIR="/home/chenzigui/src/hooks"
+GIT_DIR=".git"
+CONFIG_FILE="$GIT_DIR/config"
+
+# 1. 是否 git 仓库
+if [[ ! -d "$GIT_DIR" ]]; then
+    echo "[update_git_hooks] 当前目录没有 .git/，跳过。"
+    exit 0
+fi
+
+if [[ ! -f "$CONFIG_FILE" ]]; then
+    echo "[update_git_hooks] 找不到 .git/config，跳过。"
+    exit 0
+fi
+
+# 2. 是否 Gerrit 仓库
+if ! grep -qi "gerrit" "$CONFIG_FILE"; then
+    echo "[update_git_hooks] 当前仓库不是 Gerrit 仓库，不更新。"
+    exit 0
+fi
+
+# 3. 准备开始更新
+HOOK_TARGET_DIR="$GIT_DIR/hooks"
+mkdir -p "$HOOK_TARGET_DIR"
+
+echo "[update_git_hooks] 检测到 Gerrit 仓库，开始同步 hooks ..."
+echo "[update_git_hooks] 源目录: $HOOK_SRC_DIR"
+echo "[update_git_hooks] 目标目录: $HOOK_TARGET_DIR"
+
+for src in "$HOOK_SRC_DIR"/*; do
+    [[ -f "$src" ]] || continue   # 只处理普通文件
+
+    hook_name="$(basename "$src")"
+    target="$HOOK_TARGET_DIR/$hook_name"
+
+    # 如果目标存在，则备份
+    if [[ -e "$target" ]]; then
+        ts=$(date +%Y%m%d-%H%M%S)
+        backup="${target}.bak.${ts}"
+        mv "$target" "$backup"
+        echo "[update_git_hooks] 备份旧 hook: $target -> $backup"
+    fi
+
+    # 拷贝新的 hook
+    cp "$src" "$target"
+    chmod +x "$target"
+
+    echo "[update_git_hooks] 安装 hook: $hook_name"
+done
+
+echo "[update_git_hooks] 更新完成。"
+

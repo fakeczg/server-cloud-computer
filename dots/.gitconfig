@@ -39,7 +39,7 @@
 	defaultBranch = main
 
 [color]
-    ui = true
+	ui = auto
     branch = true
     diff = true
     status = true
